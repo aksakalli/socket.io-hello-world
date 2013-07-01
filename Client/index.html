@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="js/socket.io.min.js"></script>
+<script>
+var socket = io.connect('http://localhost:8084');
+socket.on('connect', function () {
+    socket.send('hi');
+    socket.on('message', function (msg) {
+      console.log(msg);
+      document.getElementById('mybox').style.left = msg.left + 'px';  
+      document.getElementById('mybox').style.top = msg.top + 'px';
+      console.log(msg);
+    });
+});  
+
+
+document.onkeydown = function (e) {
+    var unicode = e.keyCode ? e.keyCode : e.charCode;
+    switch (unicode) {
+        case 37: //left
+            socket.send('left');
+            break;
+        case 38: //up
+            socket.send('up');
+            break;
+        case 39: //right
+            socket.send('right');
+            break;
+        case 40: //down
+            socket.send('down');
+            break;
+    }
+    return false;
+};
+
+</script>
+        
+    </head>
+    <body style="margin:0;padding:0;">
+        <div style="background:gray;width:1280px;height: 720px;margin:0;padding:0;">
+            <div id="mybox" style="
+                 background:red;
+                 width: 10px;
+                 height: 10px;
+                 position:absolute; 
+                 -webkit-transition: all 0.3s linear;
+                 -moz-transition: all 0.3s linear;
+                 -o-transition: all 0.3s linear;
+                 transition: all 0.3s linear;
+            ">
+            </div>
+        
+        </div>
+    </body>
+</html>
