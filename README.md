@@ -24,3 +24,7 @@ node app.js
 Now index.html page can reach  the server side. The red box can be moved by pressing arrow keys and it will be updated  on every clients window.
 
 [1]: http://socket.io/        "Socket.IO"
+
+## Licence
+
+Released under [the MIT license](LICENSE).
