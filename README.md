@@ -25,6 +25,6 @@ Now index.html page can reach  the server side. The red box can be moved by pres
 
 [1]: http://socket.io/        "Socket.IO"
 
-## Licence
+## License
 
 Released under [the MIT license](LICENSE).
